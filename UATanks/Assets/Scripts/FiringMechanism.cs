@@ -5,8 +5,10 @@ using UnityEngine;
 public class FiringMechanism : MonoBehaviour
 {
     public float fireRate = 3;
-    public float damage = 15;
     float timeUntilFire = 0;
+
+    public Transform firePoint;
+    public GameObject bullet;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,6 @@ public class FiringMechanism : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("Shooting");
+        Instantiate(bullet, firePoint.position, firePoint.rotation);
     }
 }
