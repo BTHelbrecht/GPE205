@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float bulletSpeed = 0;
-    public float bulletDamge = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float bulletSpeed = 4;
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        this.transform.Translate(Vector2.up * bulletSpeed * Time.deltaTime);
+        Vector3 positon = transform.position;
+
+        Vector3 moveBullet = new Vector3(0, bulletSpeed * Time.deltaTime, 0);
+
+        positon += transform.rotation * moveBullet;
+
+        transform.position = positon;
     }
 }

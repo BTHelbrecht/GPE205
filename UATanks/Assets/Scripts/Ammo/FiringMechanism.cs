@@ -10,18 +10,13 @@ public class FiringMechanism : MonoBehaviour
     public Transform firePoint;
     public GameObject bullet;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && Time.time > timeUntilFire)
+        if (Input.GetButtonDown("Space") && Time.time > timeUntilFire)
         {
-            timeUntilFire = Time.time + 1 / fireRate;
+            RateOfFire();
             Shoot();
         }
     }
@@ -29,5 +24,10 @@ public class FiringMechanism : MonoBehaviour
     void Shoot()
     {
         Instantiate(bullet, firePoint.position, firePoint.rotation);
+    }
+
+    void RateOfFire()
+    {
+        timeUntilFire = Time.time + 1 / fireRate;
     }
 }
