@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Controls : MonoBehaviour
 {
-    public float speedForward;
-    public float speedReverse;
+    public float speedForward = 1;
+    public float speedReverse = 0.5f;
+    public float counterClockWise = 30;
+    public float clockWise = -30;
 
     public Rigidbody2D body;
 
@@ -20,32 +22,52 @@ public class Controls : MonoBehaviour
         Move();
     }
 
-    public void Move()
+    private void Move()
     {
         if (Input.GetButton("w"))
         {
-            //move forward
-            Debug.Log("f");
-            transform.Translate(Vector2.up * speedForward * Time.deltaTime);
+            Forward();
         }
         if (Input.GetButton("s"))
         {
-            //move reverse
-            Debug.Log("r");
-            transform.Translate(Vector2.down * speedReverse * Time.deltaTime);
+            Reverse();
         }
         if (Input.GetButton("a"))
         {
-            //rotate left
-            Debug.Log("RL");
-
+            RotateLeft();
         }
         if (Input.GetButton("d"))
         {
-            //rotate right
-            Debug.Log("RR");
-
+            RotateRight();
         }
+    }
+
+    private void Forward()
+    {
+        //move forward
+        Debug.Log("f");
+        transform.Translate(Vector2.up * speedForward * Time.deltaTime);
+    }
+
+    private void Reverse()
+    {
+        //move reverse
+        Debug.Log("r");
+        transform.Translate(Vector2.down * speedReverse * Time.deltaTime);
+    }
+
+    private void RotateLeft()
+    {
+        //rotate left
+        Debug.Log("RL");
+        transform.Rotate(new Vector3(0, 0, Input.GetAxis("a") * counterClockWise * Time.deltaTime));
+    }
+
+    private void RotateRight()
+    {
+        //rotate right
+        Debug.Log("RR");
+        transform.Rotate(new Vector3(0, 0, Input.GetAxis("d") * clockWise * Time.deltaTime));
     }
 }
 
