@@ -18,6 +18,4 @@ public class Bullet : MonoBehaviour
     {
         this.transform.Translate(Vector2.up * bulletSpeed * Time.deltaTime);
     }
-
-
 }
