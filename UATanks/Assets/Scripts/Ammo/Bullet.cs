@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Script - FOR: 2D, Anything needing to move forward at a rotation.
+ * SCRIPT - FOR: 2D, Anything needing to move forward at a rotation.
  * 
  * DESCRIPTION:
  * THis is to make the bullet move forward in the direction facing
