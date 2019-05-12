@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7112665962085156704}
   - component: {fileID: 6114413009501145758}
   - component: {fileID: 6451997875108587444}
-  - component: {fileID: 2244425422215964487}
+  - component: {fileID: -1503630296031360113}
   - component: {fileID: 4162941982473743526}
   - component: {fileID: 6968916245779516118}
+  - component: {fileID: -8432573348677005581}
   m_Layer: 0
   m_Name: RedBullet
   m_TagString: Untagged
@@ -104,8 +105,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!66 &2244425422215964487
-CompositeCollider2D:
+--- !u!70 &-1503630296031360113
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118,13 +119,8 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
+  m_Size: {x: 0.12, y: 0.26}
+  m_Direction: 0
 --- !u!114 &4162941982473743526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,3 +147,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 5
+--- !u!114 &-8432573348677005581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7090741142145978995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3d3c161b4ef5649a395a22f8b42846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
