@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour
 {
     public int health = 3;
-
+    
     
 
     private void OnTriggerEnter2D(Collider2D collision)

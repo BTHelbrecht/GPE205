@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6018852264855277328}
   - component: {fileID: -119249075369532710}
   - component: {fileID: 2292065789255160090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GreenBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -208,7 +208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 135883417}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BulletSpawnRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,8 @@ GameObject:
   - component: {fileID: 169847723}
   - component: {fileID: 169847724}
   - component: {fileID: 169847725}
-  m_Layer: 0
+  - component: {fileID: 169847726}
+  m_Layer: 9
   m_Name: RedTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,6 +324,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 169847722}
+--- !u!61 &169847726
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169847722}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0.17500001}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.15}
+    oldSize: {x: 0.16, y: 0.5}
+    newSize: {x: 0.16, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!1 &206648610
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +490,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.2670519, y: 0.6296445, z: -9.540779}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1916014738}
+  - {fileID: 615705775}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -478,10 +507,10 @@ GameObject:
   - component: {fileID: 372388684}
   - component: {fileID: 372388686}
   - component: {fileID: 372388685}
-  - component: {fileID: 372388688}
   - component: {fileID: 372388687}
+  - component: {fileID: 372388688}
   - component: {fileID: 372388689}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GreenBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +541,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372388683}
   m_BodyType: 1
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.0001
@@ -589,8 +618,8 @@ MonoBehaviour:
   counterClockWise: 30
   clockWise: -30
   body: {fileID: 372388685}
---- !u!66 &372388688
-CompositeCollider2D:
+--- !u!61 &372388688
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -603,13 +632,18 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.75, y: 0.7}
+    newSize: {x: 0.75, y: 0.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 0.7}
   m_EdgeRadius: 0
-  m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
 --- !u!114 &372388689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,6 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3d3c161b4ef5649a395a22f8b42846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +750,8 @@ GameObject:
   m_Component:
   - component: {fileID: 615705775}
   - component: {fileID: 615705776}
-  m_Layer: 0
+  - component: {fileID: 615705778}
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,13 +765,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615705774}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.44, y: -0.202664, z: -1.251466}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.707052, y: -0.83230853, z: 8.289313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1531914388}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 352723479}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &615705776
 MonoBehaviour:
@@ -752,6 +788,27 @@ MonoBehaviour:
   fireRate: 3
   firePoint: {fileID: 135883417}
   bullet: {fileID: 7090741142145978995, guid: 00ba8c503bb3ac94f9e2b52b3d06b1a2, type: 3}
+--- !u!50 &615705778
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615705774}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1164626299
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,7 +849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1178063466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletSpawnGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +881,7 @@ GameObject:
   - component: {fileID: 1376053705}
   - component: {fileID: 1376053706}
   - component: {fileID: 1376053707}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GreenTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -919,7 +976,8 @@ GameObject:
   - component: {fileID: 1531914389}
   - component: {fileID: 1531914391}
   - component: {fileID: 1531914390}
-  m_Layer: 0
+  - component: {fileID: 1531914392}
+  m_Layer: 9
   m_Name: RedBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -989,8 +1047,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!66 &1531914390
-CompositeCollider2D:
+--- !u!61 &1531914390
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1003,13 +1061,18 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.75, y: 0.7}
+    newSize: {x: 0.75, y: 0.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 0.7}
   m_EdgeRadius: 0
-  m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
 --- !u!50 &1531914391
 Rigidbody2D:
   serializedVersion: 4
@@ -1031,6 +1094,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1531914392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531914387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3d3c161b4ef5649a395a22f8b42846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
 --- !u!1 &1916014737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,8 +1116,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1916014738}
+  - component: {fileID: 1916014741}
   - component: {fileID: 1916014739}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1055,13 +1132,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1916014737}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.2670519, y: -0.6296445, z: 9.540779}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 372388684}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 352723479}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1916014739
 MonoBehaviour:
@@ -1078,6 +1155,27 @@ MonoBehaviour:
   fireRate: 3
   firePoint: {fileID: 1178063466}
   bullet: {fileID: 6981267319179126503, guid: 74ee1f60985ce8d4f9b495db23d2d7ad, type: 3}
+--- !u!50 &1916014741
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916014737}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1973363181
 GameObject:
   m_ObjectHideFlags: 0

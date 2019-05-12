@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4162941982473743526}
   - component: {fileID: 6968916245779516118}
   - component: {fileID: -8432573348677005581}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RedBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
