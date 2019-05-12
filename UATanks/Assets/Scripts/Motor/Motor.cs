@@ -4,6 +4,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 /*
  * SCRIPT - FOR: 2D TANK, TOP DOWN
  * 
@@ -118,5 +119,5 @@ public class Motor : MonoBehaviour
         // change.turn(make(x,y,z) ON Y AXIS---(null, null, axis of -a- * 30deg. * Time based.. Not Frame Based))
         transform.Rotate(new Vector3(0, 0, Input.GetAxis("d") * clockWise * Time.deltaTime));
     }// --- END rotateright method
-}
+}// --- END CLASS
 
