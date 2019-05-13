@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// START CLASS
 public class FiringMechanism : MonoBehaviour
 {
+    // Fire rate value
     public float fireRate = 3;
-    float timeUntilFire = 0;
-
+    // Firepoint starting value
     public Transform firePoint;
+    // Bullet gameobject value
     public GameObject bullet;
+    // Time between shots value
+    private float timeUntilFire = 0;
 
+   
 
     // Update is called once per frame
     void Update()
