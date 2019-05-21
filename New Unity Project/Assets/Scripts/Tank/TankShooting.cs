@@ -12,11 +12,13 @@ public class TankShooting : MonoBehaviour
     public float m_MinLaunchForce = 15f;        // Minimum launch potential for distance.
     public float m_MaxLaunchForce = 30f;        // Max launch potential for distance. 
     public float m_MaxChargeTime = 0.75f;       // Max time allowed for a player to charge there weapon.
+    public float m_FireRate = 3;
 
     
     private string m_FireButton;                // Refrence for the input button which are strings and then this is for each player.
     private float m_CurrentLaunchForce;         // This is the state of force of when a player releases the charge of firing the weapon.
-    private float m_ChargeSpeed;                // Refrence to the speed of the bullet
+    private float m_ChargeSpeed;                // Refrence to the speed of the bullet.
+    private float m_FireRateTime; 
     private bool m_Fired;                       // Refrence to whether the player has fired.
 
 
@@ -39,32 +41,37 @@ public class TankShooting : MonoBehaviour
     // Calls once per-frame. THIS IS HANDLING ALL THE INPUT.
     private void Update()
     {
-        // Track the current state of the fire button and make decisions based on the current launch force.
-        if(m_CurrentLaunchForce >= m_MaxLaunchForce && !m_Fired)
+        if (Time.time > m_FireRateTime)
         {
-            // at max charge, not yet fired
-            m_CurrentLaunchForce = m_MaxLaunchForce;
-            Fire();
-        }
-        else if(Input.GetButtonDown(m_FireButton))
-        {
-            // have we pressed fire for the first time?
-            m_Fired = false;
-            m_CurrentLaunchForce = m_MinLaunchForce;
+            // Track the current state of the fire button and make decisions based on the current launch force.
+            if (m_CurrentLaunchForce >= m_MaxLaunchForce && !m_Fired)
+            {
+                // at max charge, not yet fired
+                m_CurrentLaunchForce = m_MaxLaunchForce;
+                Fire();
+                FireRate();
+            }
+            else if (Input.GetButtonDown(m_FireButton))
+            {
+                // have we pressed fire for the first time?
+                m_Fired = false;
+                m_CurrentLaunchForce = m_MinLaunchForce;
 
-            m_ShootingAudio.clip = m_ChargingClip;
-            m_ShootingAudio.Play();
-        }
-        else if(Input.GetButton(m_FireButton) && !m_Fired)
-        {
-            // Holding the fire button, not yet fired
-            // 
-            m_CurrentLaunchForce += m_ChargeSpeed * Time.deltaTime;
-        }
-        else if(Input.GetButtonUp(m_FireButton) && !m_Fired)
-        {
-            // we released the button, having not fired yet
-            Fire();
+                m_ShootingAudio.clip = m_ChargingClip;
+                m_ShootingAudio.Play();
+            }
+            else if (Input.GetButton(m_FireButton) && !m_Fired)
+            {
+                // Holding the fire button, not yet fired
+                // 
+                m_CurrentLaunchForce += m_ChargeSpeed * Time.deltaTime;
+            }
+            else if (Input.GetButtonUp(m_FireButton) && !m_Fired)
+            {
+                // we released the button, having not fired yet
+                Fire();
+                FireRate();
+            }
         }
     }
 
@@ -82,5 +89,10 @@ public class TankShooting : MonoBehaviour
         m_ShootingAudio.Play();
 
         m_CurrentLaunchForce = m_MinLaunchForce;
+    }
+
+    private void FireRate()
+    {
+        m_FireRateTime = Time.time + 1f / m_FireRate;
     }
 }

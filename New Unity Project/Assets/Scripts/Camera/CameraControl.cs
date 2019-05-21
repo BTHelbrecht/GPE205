@@ -5,7 +5,7 @@ public class CameraControl : MonoBehaviour
     public float m_DampTime = 0.2f;                     // Time the camera takes to move to the new position
     public float m_ScreenEdgeBuffer = 4f;               // Buffer of the edge of the screen to make sure the Taanks stay on screen
     public float m_MinSize = 6.5f;                      // Minimum zoom in size
-    public Transform[] m_Targets;     // NEEDED PUBLIC BUT NOT THROUGH INSPECTOR... camera is based on tank targets.
+    [HideInInspector] public Transform[] m_Targets;     // NEEDED PUBLIC BUT NOT THROUGH INSPECTOR... camera is based on tank targets.
 
 
     private Camera m_Camera;                            // Reference to the camera to change the variable
