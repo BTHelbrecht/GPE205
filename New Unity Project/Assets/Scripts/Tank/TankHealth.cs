@@ -8,24 +8,13 @@ public class TankHealth : MonoBehaviour
     public Image m_FillImage;                       // To acces the fill gameobject
     public Color m_FullHealthColor = Color.green;   // green is for full health on the UI wheel
     public Color m_ZeroHealthColor = Color.red;     // red is for no health on the UI wheel
-   // public GameObject m_ExplosionPrefab;            // refrence to the explosion prefab
+   
     
-    /*
-    private AudioSource m_ExplosionAudio;          
-    private ParticleSystem m_ExplosionParticles;  
-    */
+    
     private float m_CurrentHealth;                  // value for the current health
     private bool m_Dead;                            // value to check if player is dead or not
 
-    /*
-    private void Awake()
-    {
-        m_ExplosionParticles = Instantiate(m_ExplosionPrefab).GetComponent<ParticleSystem>();
-        m_ExplosionAudio = m_ExplosionParticles.GetComponent<AudioSource>();
-
-        m_ExplosionParticles.gameObject.SetActive(false);
-    }
-    */
+    
 
 
     private void OnEnable()
@@ -69,3 +58,20 @@ public class TankHealth : MonoBehaviour
 
     }
 }
+
+/*
+ * THIS IS TO ADD tank explosion PARTICALES AT ANOTHER TIME.
+ * 
+ * public GameObject m_ExplosionPrefab;            // refrence to the explosion prefab
+ *
+ * private AudioSource m_ExplosionAudio;          
+ * private ParticleSystem m_ExplosionParticles;  
+ *  
+ * private void Awake()
+ {
+        m_ExplosionParticles = Instantiate(m_ExplosionPrefab).GetComponent<ParticleSystem>();
+        m_ExplosionAudio = m_ExplosionParticles.GetComponent<AudioSource>();
+
+        m_ExplosionParticles.gameObject.SetActive(false);
+    }
+    */

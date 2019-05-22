@@ -41,8 +41,10 @@ public class TankMovement : MonoBehaviour
 
     private void Start()
     {
-        m_MovementAxisName = "Vertical" + m_PlayerNumber;
-        m_TurnAxisName = "Horizontal" + m_PlayerNumber;
+        if (m_PlayerNumber == 1)
+        {
+            Player();
+        }
 
         m_OriginalPitch = m_MovementAudio.pitch;
     }
@@ -50,11 +52,36 @@ public class TankMovement : MonoBehaviour
 
     private void Update()
     {
-        // Store the player's input and make sure the audio for the engine is playing.
-        m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
-        m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
+        if (m_PlayerNumber == 1)
+        {
+            Player();
+            EngineAudio();
+        }
 
-        EngineAudio();
+        if (m_PlayerNumber == 2)
+        {
+            Rage();
+            EngineAudio();
+        }
+
+        if (m_PlayerNumber == 3)
+        {
+            Hide();
+            EngineAudio();
+        }
+
+        if (m_PlayerNumber == 4)
+        {
+            Patrol();
+            EngineAudio();
+        }
+
+        if (m_PlayerNumber == 5)
+        {
+            Pathfind();
+            EngineAudio();
+        }
+        
 
     }
 
@@ -108,5 +135,41 @@ public class TankMovement : MonoBehaviour
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
 
         m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
+    }
+
+    private void Player()
+    {
+        // Store the player's input and make sure the audio for the engine is playing.
+        m_MovementAxisName = "Vertical" + m_PlayerNumber;
+        m_TurnAxisName = "Horizontal" + m_PlayerNumber;
+
+        m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
+        m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
+    }
+
+    private void Rage()
+    {
+        // Store the player's input and make sure the audio for the engine is playing.
+        m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
+        m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
+    }
+
+    private void Hide()
+    {
+        // Store the player's input and make sure the audio for the engine is playing.
+        m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
+        m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
+    }
+
+    private void Patrol()
+    {
+        Debug.Log("test");
+    }
+
+    private void Pathfind()
+    {
+        // Store the player's input and make sure the audio for the engine is playing.
+        m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
+        m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
     }
 }
