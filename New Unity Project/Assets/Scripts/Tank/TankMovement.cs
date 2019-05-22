@@ -16,7 +16,9 @@ public class TankMovement : MonoBehaviour
     private Rigidbody m_Rigidbody;         
     private float m_MovementInputValue;    
     private float m_TurnInputValue;        
-    private float m_OriginalPitch;         
+    private float m_OriginalPitch;
+    private TankMovement m_Movement;                        // Refrence to the TANK MOVEMENT.
+    private TankShooting m_Shooting;                        // Refrence to the TANK SHOOTING.
 
 
     private void Awake()
@@ -41,48 +43,22 @@ public class TankMovement : MonoBehaviour
 
     private void Start()
     {
-        if (m_PlayerNumber == 1)
-        {
-            Player();
-        }
+       
+        m_MovementAxisName = "Vertical" + m_PlayerNumber;
+        m_TurnAxisName = "Horizontal" + m_PlayerNumber;
 
         m_OriginalPitch = m_MovementAudio.pitch;
+        
     }
     
 
     private void Update()
     {
-        if (m_PlayerNumber == 1)
-        {
-            Player();
-            EngineAudio();
-        }
+        m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
+        m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
 
-        if (m_PlayerNumber == 2)
-        {
-            Rage();
-            EngineAudio();
-        }
-
-        if (m_PlayerNumber == 3)
-        {
-            Hide();
-            EngineAudio();
-        }
-
-        if (m_PlayerNumber == 4)
-        {
-            Patrol();
-            EngineAudio();
-        }
-
-        if (m_PlayerNumber == 5)
-        {
-            Pathfind();
-            EngineAudio();
-        }
-        
-
+        EngineAudio();
+     
     }
 
 
@@ -135,41 +111,5 @@ public class TankMovement : MonoBehaviour
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
 
         m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
-    }
-
-    private void Player()
-    {
-        // Store the player's input and make sure the audio for the engine is playing.
-        m_MovementAxisName = "Vertical" + m_PlayerNumber;
-        m_TurnAxisName = "Horizontal" + m_PlayerNumber;
-
-        m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
-        m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
-    }
-
-    private void Rage()
-    {
-        // Store the player's input and make sure the audio for the engine is playing.
-        m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
-        m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
-    }
-
-    private void Hide()
-    {
-        // Store the player's input and make sure the audio for the engine is playing.
-        m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
-        m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
-    }
-
-    private void Patrol()
-    {
-        Debug.Log("test");
-    }
-
-    private void Pathfind()
-    {
-        // Store the player's input and make sure the audio for the engine is playing.
-        m_MovementInputValue = Input.GetAxis(m_MovementAxisName);
-        m_TurnInputValue = Input.GetAxis(m_TurnAxisName);
     }
 }

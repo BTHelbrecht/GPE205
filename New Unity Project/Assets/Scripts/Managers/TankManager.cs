@@ -23,6 +23,8 @@ public class TankManager
     [HideInInspector] public int m_Wins;                    // Track score for porpuse of determining winner.
 
     // Private
+    private PatrolMovement m_PatrolMove;
+    private RageMovement m_RageMove;
     private TankMovement m_Movement;                        // Refrence to the TANK MOVEMENT.
     private TankShooting m_Shooting;                        // Refrence to the TANK SHOOTING.
     private GameObject m_CanvasGameObject;                  // Refrence to the UI Cavas gameobject to turn UI on or off.
@@ -34,9 +36,13 @@ public class TankManager
     {
         // assign ref. from tank movement script
         // assign ref. from tank shooting script
+        // assign ref. from patrol movement AI script
+        // assign ref. from rage movement AI script
         // assign ref from child UI canavas 
         m_Movement = m_Instance.GetComponent<TankMovement>();
         m_Shooting = m_Instance.GetComponent<TankShooting>();
+        m_PatrolMove = m_Instance.GetComponent<PatrolMovement>();
+        m_RageMove = m_Instance.GetComponent<RageMovement>();
         m_CanvasGameObject = m_Instance.GetComponentInChildren<Canvas>().gameObject;
 
         // setting the player number for moving script
